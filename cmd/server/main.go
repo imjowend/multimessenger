@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	"github.com/myapp/internal/app"
-	"github.com/myapp/internal/domain"
-	"github.com/myapp/internal/infrastructure/repository/memory"
+	"github.com/imjowend/multimessenger/internal/app"
+	"github.com/imjowend/multimessenger/internal/domain"
+	"github.com/imjowend/multimessenger/internal/infrastructure/repository/memory"
 )
 
 func main() {

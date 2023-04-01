@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/myapp/internal/domain"
+	"github.com/imjowend/multimessenger/internal/domain"
 )
 
 type Handler struct {

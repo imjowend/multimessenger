@@ -1,10 +1,10 @@
-package application
+package app
 
 import (
 	"net/http"
 
-	"github.com/myapp/internal/domain"
-	"github.com/myapp/internal/infrastructure/delivery/http"
+	"github.com/imjowend/multimessenger/internal/domain"
+	handler "github.com/imjowend/multimessenger/internal/infrastructure/delivery/http"
 )
 
 type App struct {
@@ -12,8 +12,8 @@ type App struct {
 }
 
 func NewApp(messageService *domain.MessageService) *App {
-	handler := http.NewHandler(messageService)
-	return &App{handler: handler}
+	handler := handler.NewHandler(messageService)
+	return &App{handler: *http.Handler}
 }
 
 func (a *App) Run(addr string) error {
