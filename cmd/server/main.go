@@ -1,21 +1,25 @@
 package main
 
 import (
-	"log"
+	"fmt"
 
-	"github.com/imjowend/multimessenger/internal/app"
-	"github.com/imjowend/multimessenger/internal/domain"
-	"github.com/imjowend/multimessenger/internal/infrastructure/repository/memory"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	messageRepo := memory.NewMessageRepository()
-	messageService := domain.NewMessageService(messageRepo)
-	myApp := app.NewApp(messageService)
+	r := gin.Default()
 
-	addr := ":8080"
-	log.Printf("Server listening on %s", addr)
-	if err := myApp.Run(addr); err != nil {
-		log.Fatalf("Error starting server: %v", err)
-	}
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "¡Hola Mundo!",
+		})
+	})
+
+	r.Run() // Por defecto, escuchará en :8080
+}
+
+func run() error {
+	a := gin.Default().RouterGroup
+	fmt.Println(a)
+	return nil
 }
